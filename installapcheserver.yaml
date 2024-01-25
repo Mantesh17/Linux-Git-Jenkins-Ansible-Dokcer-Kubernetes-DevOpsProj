@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  tasks:
+   - name: Install apche HTTP server
+      yum: httpd
+      state: latest
+...
+

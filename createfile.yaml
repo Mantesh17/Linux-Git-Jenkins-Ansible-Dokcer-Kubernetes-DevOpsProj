@@ -1,0 +1,10 @@
+---
+- hosts: all
+  task: 
+   - name: create a file
+     file: 
+     path: /tmp/mantu.sh
+     mode: 0777
+     owner: ec2-user
+     state: touch
+...     

@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: true
+  vars:
+    companyName: mantutech.nets
+    location: bengaluru
+  tasks:
+   - name: install Apache http server
+     yum:
+      name: httpd
+      state: latest
+   - name: copy index.html
+     template:
+       src: index.html
+       dest: /var/www/index.html
+     notify: -Re-start the apache http server
+  handlers:
+   - name: -re-star the apache http server
+     service:
+     name: httpd
+        state: restarted
+        enabled: true
+      
+...
